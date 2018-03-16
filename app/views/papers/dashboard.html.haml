@@ -18,7 +18,7 @@
     %li{class:"paper-item"}
       = link_to paper.title, paper_section_path(paper_id:paper.id,id:'new')
       
-      = link_to paper_path(paper.id) do
+      = link_to paper_path(paper.id), target:"_blank" do
         %i{class:"fa fa-eye preview"}
   
       %i{class:"fa fa-edit paper-edit"}
