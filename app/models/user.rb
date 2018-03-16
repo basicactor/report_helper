@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :confirmable, :lockable, :timeoutable, :omniauthable, omniauth_providers: [:twitter]
+         :confirmable, :lockable, :omniauthable, omniauth_providers: [:twitter]
 
   has_many :papers, dependent: :destroy
 
