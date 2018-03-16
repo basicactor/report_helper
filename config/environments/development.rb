@@ -34,20 +34,14 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
-    #:address => "smtp.gmail.com",
-    #:port => 587,
-    #:user_name => "paperhelp316@gmail.com",
-    #:password => "PaperHelp357",
-    #:authentication => :plain,
-    #:enable_starttls_auto => true
+    :address => "smtp.gmail.com",
+    :port => 587,
+    :user_name => "paperhelp316@gmail.com",
+    :password => "PaperHelp357",
+    :authentication => :plain,
+    :enable_starttls_auto => true
 
-     :user_name      => ENV['SENDGRID_USERNAME'],
-     :password       => ENV['SENDGRID_PASSWORD'], 
-     :address        => 'smtp.sendgrid.net',
-     :port           => '587',
-     :authentication => :plain,    
-     :domain         => 'localhost:3000',
-     :enable_starttls_auto => true
+    
   }
 
   config.action_mailer.perform_caching = false
