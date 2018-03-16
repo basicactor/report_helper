@@ -75,11 +75,11 @@ test:
 #
 # You can use this database configuration with:
 #
-#   production:
-#     url: <%= ENV['DATABASE_URL'] %>
+  production:
+    url:  'postgres://yefgwhlqauvafi:e3d28d52b91c9881f8a75403ea073302e5e890a0e8411d7dd747e1354e319543@ec2-54-204-45-43.compute-1.amazonaws.com:5432/dd4makcvbr8h6v'
 #
-production:
-  <<: *default
-  database: paper_help_production
-  username: paper_help
-  password: <%= ENV['PAPER_HELP_DATABASE_PASSWORD'] %>
+# production:
+#   <<: *default
+#   database: paper_help_production
+#   username: paper_help
+#   password: <%= ENV['PAPER_HELP_DATABASE_PASSWORD'] %>
