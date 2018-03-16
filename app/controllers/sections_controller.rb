@@ -1,15 +1,12 @@
 class SectionsController < ApplicationController
   before_action :authenticate_user!
-  before_action :correct_user, only: [:new, :show]
+  before_action :correct_user, only: [:show]
 
   # dashboardからshowへの繋ぎ役
   def new
     @section = Paper.find(params[:paper_id]).sections.last
     @paper = Paper.find(params[:paper_id])
     redirect_to action:'show', id:@section.id
-    
-
-
   end
   
   def show

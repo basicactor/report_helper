@@ -6,7 +6,7 @@
 		
 	.header-menu
 		- if user_signed_in?
-			%strong= link_to current_user.username, home_dashboard_path
+			%strong= link_to current_user.username, dashboard_path
 			= link_to 'プロフィール変更', edit_user_registration_path
 			= link_to 'ログアウト', destroy_user_session_path, method: :delete
 		- else

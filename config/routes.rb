@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   
   root to: 'home#top'
 
-  get 'home/dashboard' => "home#dashboard"
+  get '/dashboard' => "papers#dashboard"
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

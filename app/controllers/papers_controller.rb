@@ -1,5 +1,13 @@
 class PapersController < ApplicationController
-  
+  before_action :authenticate_user!
+  before_action :correct_user, only: [:show]
+
+  def dashboard
+    @paper = Paper.new
+    @papers = User.find(current_user.id).papers
+  end
+
+
   def show
     @paper = Paper.find(params[:id])
     
@@ -9,8 +17,6 @@ class PapersController < ApplicationController
     @conc = @sections.where(part:'conclusion').order(:position)
 
     @citations = Citation.where(paper_id:@paper.id).order(:title)
-
-
   end
 
 
