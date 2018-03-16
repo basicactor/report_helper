@@ -1,0 +1,37 @@
+.preview-page
+  .preview-page-icon
+    preview
+  
+  %h1
+    = @paper.title 
+     
+
+  - @intro.each do |section|
+    .section-itme-in-preview
+      %h3
+        = section.title
+      %p
+        = section.text
+ 
+  - @body.each do |section|
+    .section-itme-in-preview
+      %h3
+        = section.title
+      %p
+        = section.text
+
+  - @conc.each do |section|
+    .section-itme-in-preview
+      %h3
+        = section.title
+      %p
+        = section.text 
+
+  .citation-in-preview
+    %h2 -Citation List-
+    - @citations.each do |citation|
+      %li
+        = citation.title
+        = link_to '(' + citation.url + ')' , citation.url, target:'_blank'
+        = link_to 'Jump to Citation machine', 'http://www.citationmachine.net/apa/cite-a-website/search?utf8=%E2%9C%93&q=' + citation.url + '=Search+Websites', target:'_blank'
+        

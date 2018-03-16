@@ -1,0 +1,18 @@
+#main-area  
+  #main-text-area
+    = form_for [@paper, @section], url: {action: "update"}, remote: true do |f|
+      = f.text_field :title, {placeholder:'Section Title'}
+      = f.text_area :text
+      = f.select :part, [["introduction", "introduction"], ["body", "body"], ["conclusion", "conclusion"]], :selected => "body"
+      = f.hidden_field :paper_id, value:@paperID
+      = f.submit 'save'
+  
+
+  = link_to 'new section', paper_sections_path( "section"=>{"title"=>"", "text"=>"", "part"=>"", "paper_id"=>@paperID}), method:'post'
+  
+  %button{id:"count"} count
+  #result
+    Words: <span id="wordCount">0</span><br/>
+    Total Characters(including trails): <span id="totalChars">0</span><br/>
+    Characters (excluding trails): <span id="charCount">0</span><br/>
+    Characters (excluding all spaces): <span id="charCountNoSpace">0</span>

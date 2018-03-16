@@ -1,0 +1,22 @@
+/*$('#paper_title').val('');
+$('.paper-list').append('<li class="paper-item"><p><%= @paper.title %></p></li>')
+*/
+
+
+
+
+
+//paper作成と同時に新しいsectionも作成
+$.ajax({
+	url:'/papers/<%= @paper.id %>/sections',
+	type:"POST",
+	data:{"section": {"title":"", "text":"", "part":"", "paper_id":"<%= @paper.id%>","position":""},
+		  "authenticity_token" : $('meta[name="csrf-token"]').attr('content')
+		}
+
+});
+
+
+
+
+

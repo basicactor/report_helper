@@ -1,0 +1,288 @@
+// Place all the styles related to the Sections controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*-------  ここからmain-area  --------*/
+
+#main-area {
+	width: 45%;
+	height:500px;
+	position: absolute;
+	left:27%;
+}
+
+#section_title {
+	width: 100%;
+	height:50px;
+	font-size: 24px;
+	text-align: center;
+    font-weight: bold;
+	vertical-align: middle;
+
+}
+
+.new_section,.edit_section  {
+	width:100%;
+	height:100%;
+}
+
+.edit_section{
+	border:none;
+	
+	#section_title {
+	    overflow: hidden;
+	    background-image: -webkit-linear-gradient(#fed6e3 0%, #ffaaaa 100%);
+	    background-image: linear-gradient(#fed6e3 0%, #ffaaaa 100%);
+		transition:all 0.5s;
+
+
+		&:focus {
+			background:white;
+		}
+	}
+
+	#section_text {
+		background-color:pink;
+		transition:all 0.5s;
+
+		&:focus {
+			background-color:white;
+		}
+	}
+
+	
+}
+
+
+
+#main-text-area {
+	width:100%;
+	height:100%;
+}
+
+#section_text {
+	width:90%;
+	height:70%;
+	border:none;
+	background-color: white;
+	font-size: 18px;
+	padding: 5%;
+}
+
+.main-area-text-noneditable {
+	width:90%;
+	height:100%;
+	overflow: scroll;
+	background-color:rgba(211, 211,211,0.4);
+	padding: 5%;
+}
+
+/*-------  ここまでmain-area  --------*/
+
+/*-------  ここからoutline-area  --------*/
+
+
+#outline-area {
+	width: 27%;
+	background-color:orange;
+	height:500px;
+	position:absolute;
+	left:0;
+
+	.part-block {
+		margin-left:20px;
+	}
+}
+
+.part-block li{
+	margin-left:10px;
+}
+
+
+
+#edit-paper-title-modal-trigger{
+	width:100%;
+	height:30px;
+	text-align:center;
+
+
+	&:hover {
+		cursor:pointer;
+		background-color:grey;
+		transition:all 0.3s;
+	}
+}
+
+
+
+#edit-paper-title-modal-show {
+  /* position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0; */
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 100;
+  
+}
+
+.modal {
+  /* position: absolute;
+  top: 20%;
+  left: 34%; */
+  background-color: #e6ecf0;
+  padding: 20px 0 40px;
+  border-radius: 10px;
+  width: 50%;
+  height: 50px;
+  text-align: center;
+  display:none;
+}
+
+.close-modal{
+	cursor:pointer;
+}
+
+
+.section-item{
+	width:100%;
+	float:left;
+
+	.fa{
+		display:none;
+		float:right;
+		padding:0 20px;
+		padding: 0 5px;
+        font-size: 17px;
+	}
+
+	&:hover {
+	  background-color:rgba(0,0,0,0.1);
+	  .fa{
+	  	display:block;
+	  	cursor:pointer;
+	  }
+    }
+}
+
+.preview-button {
+	width:100px;
+	margin-top:200px;
+	cursor:pointer;
+	background-color:blue;
+	color:white;
+}
+
+
+/*===========================================================  ここからsearch-area  ==========================================================*/
+
+
+
+
+#search-area {
+	width: 28%;
+	background-color:yellow;
+	height:500px;
+	position: absolute;
+	right:0;
+}
+
+.filter-tab-area {
+	width: 70%;
+	height:70px;
+	margin:0 auto;
+}
+
+.filter-tab,
+.filter-tab-academic-search {
+	width: 100px;
+	height:30px;
+	float:left;
+	padding:5px;
+	margin-right:10px;
+	text-align: center;
+	cursor: pointer;
+	vertical-align: top;
+
+	&:hover {
+		background-color: pink;
+	}
+}
+
+ .syn, 
+ .academic-search, 
+ .citation,
+ .thesis-search {
+ 	display:none;
+ }
+
+.filter-tab-area .active,
+.filter-tab-area-academic-search .active {
+	background-color: pink;
+}
+
+.search-box {
+	margin:20px auto;
+	width: 90%;
+	height:400px;
+	background-color: white;
+}
+
+/*-------  ここからHQ search  --------*/
+
+
+.filter-tab-academic-search {
+	width:40%;
+}
+
+
+/*academic-search tabエリア*/
+ .filter-tab-area-academic-search {
+    width: 100%;
+    height: 50px;
+}
+
+#site-search-form,
+#thesis-search-form {
+    margin-left: 20px;
+
+    li {
+    	margin-bottom:5px;
+    }
+}
+
+/*-------  ここからcitation  --------*/
+
+
+
+.citation-item{
+	width:70%;
+	float:left;
+	text-decoration:underline;
+
+	.fa{
+		display:none;
+		float:right;
+		padding:0 20px;
+		padding: 0 5px;
+        font-size: 17px;
+	}
+
+	&:hover {
+	  background-color:rgba(0,0,0,0.1);
+	  .fa{
+	  	display:block;
+	  	cursor:pointer;
+	  }
+    }
+}
+
+.fa-edit:hover{
+	color:green;
+}
+
+.fa-times:hover{
+	color:red;
+}
+
+

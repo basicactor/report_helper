@@ -1,0 +1,38 @@
+%h1 
+%h2 Dashboard
+
+.paper-list
+
+  %li{class:"paper-item",id:"paper-create-button"} 
+    %i{class:"fa fa-plus-square"} new
+  #new-paper-modal-create-show.modal
+    %p 新しいPaperを作る
+    = form_for @paper, remote:true do |f|
+      =f.text_field :title, {placeholder: "Paper's Title"}
+      =f.hidden_field :user_id, value:current_user.id
+      =f.submit 'save'
+
+    .close-modal
+      %i{class:'fa fa-2x fa-times'}
+  - @papers.each do |paper|
+    %li{class:"paper-item"}
+      = link_to paper.title, paper_section_path(paper_id:paper.id,id:'new')
+      
+      = link_to paper_path(paper.id) do
+        %i{class:"fa fa-eye preview"}
+  
+      %i{class:"fa fa-edit paper-edit"}
+
+      = link_to paper_path(paper.id), method:'delete', data: {confirm:'本当に削除しますか？' }, remote: true do
+        %i{class:"fa fa-times"}
+
+      #paper-title-edit-in-dashboard-show.modal
+        %p paper titleを修正
+        = form_for @paper, url: {controller:"papers", action: "update", id:paper.id}, html:{method:"patch"}, remote: true do |f|
+          =f.text_field :title, value: paper.title
+          =f.hidden_field :user_id, value:current_user.id
+          =f.submit 'save'
+        .close-modal
+          %i{class:'fa fa-2x fa-times'}
+
+

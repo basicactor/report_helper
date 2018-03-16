@@ -1,0 +1,123 @@
+#search-area
+  .filter-tab-area
+    #translation.filter-tab.active 翻訳辞書
+    #syn.filter-tab 同義語
+    #academic-search.filter-tab HQ Search
+    #citation.filter-tab Citation
+  
+  #search-boxes
+    .search-box.translation
+      %h1 翻訳辞書
+      %form#form-translation
+        %li
+          %input{:checked => "checked",:type => "radio", :name => "translation", :value => "Ja-to-En"}/
+          日-> 英
+        %li
+          %input{:type => "radio", :name => "translation", :value => "En-to-Ja"}/
+          英-> 日        
+        %input#word{:name => "word", :type => "text"}/
+        %button{:type => "submit"} 検索
+      #done
+      #error
+      #weblio
+      %input#ajax-button{:type => "button", :value => "click"}/
+
+     
+    
+    .search-box.syn 同義語検索
+    
+    .search-box.academic-search
+      .filter-tab-area-academic-search
+        #site-search.filter-tab-academic-search.active Specific Site Search
+        #thesis-search.filter-tab-academic-search Thesis Search
+
+      #hq-search-boxes
+        .nq-search-box.site-search
+          %form#site-search-form
+            %p (各項目が新規タブで開きます)
+            %li
+              %input#all{:type => "checkbox"}>/
+              ALL
+            %li
+              %input{:type => "checkbox", :value => "wsj.com"}/
+              Wall Street Journal
+            %li
+              %input{:checked => "checked", :type => "checkbox", :value => "cnn.com"}/
+              CNN
+            %li
+              %input{:type => "checkbox", :value => "cnbc.com"}/
+              CNBC
+            %li
+              %input{:type => "checkbox", :value => "newsweek.com"}/
+              News Week
+            %li
+              %input{:type => "checkbox", :value => "businessinsider.com"}/
+              Business Insider
+            %li
+              %input{:type => "checkbox", :value => "thediplomat.com"}/
+              the diplomat
+            %li
+              %input{:type => "checkbox", :value => "hbr.org"}/
+              Harvard Business Review
+            %li
+              %input{:type => "checkbox", :value => "nytimes.com"}/
+              New York Times
+            %input.search-word{:type => "text"}/
+            %button{:type => "submit"} 検索
+
+        .nq-search-box.thesis-search
+          %form#thesis-search-form
+            %li
+              %input{:checked => "checked", :name => "thesis-source", :type => "radio", :value => "google-scholar"}/
+              Google Scholar
+            %li
+              %input{:type => "radio", :name => "thesis-source", :value => "oatd"}/
+              Open Access Theses and Dissertations
+            %li
+              %input{:type => "radio", :name => "thesis-source", :value => "dart"}/
+              DART Europe
+            %li
+              %input{:type => "radio", :name => "thesis-source", :value => "ndltd"}/
+              NDLTD
+            %li
+            %input{:type => "radio", :name => "thesis-source", :value => "caltech"}/
+            California Institute of Technology Thesis    
+            
+            %input.search-word{:type => "text"}/
+            %button{:type => "submit"} 検索
+    
+    .search-box.citation
+      %h3 Save Citation URL here
+      = form_for @citation, remote: true do |f|
+        =f.text_field :url, {placeholder: 'URL'}
+        =f.text_field :title, {placeholder: 'Title'}
+        =f.hidden_field :paper_id, value:@paperID
+        =f.hidden_field :section_id, value:@sectionID
+        =f.submit 'save'
+      
+
+      #citation-list
+        - @citations.each_with_index do |citation,i|
+          %li{class:'citation-item', id:i}
+            = link_to citation.title, citation.url, target:'_blank' 
+            
+            %i{class:"fa fa-edit citation-edit"}
+            
+            = link_to citation_path(citation.id), method:'delete', data: {confirm:'本当に削除しますか？' }, remote: true do
+              %i{class:"fa fa-times"}
+
+            .edit-citation-modal-show.modal
+              %p citationを修正
+              = form_for @citation, url: {controller:"citations", action: "update",id:citation.id}, html:{method:"patch"}, remote: true do |f|
+                =f.text_field :url, value:citation.url
+                =f.text_field :title, value:citation.title
+                =f.hidden_field :paper_id, value:@paperID
+                =f.hidden_field :section_id, value:@sectionID
+                =f.submit 'save'
+
+              .close-modal
+                %i{class:'fa fa-2x fa-times'}
+
+
+
+  / right-area

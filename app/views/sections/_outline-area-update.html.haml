@@ -1,0 +1,69 @@
+.intro-p
+  %h4 Intro
+  .sortable
+    - @sections.each do |section|
+      - if section.part == 'introduction'
+        - sectionId = 'list_' + section.id.to_s
+        %li{id:sectionId, class:"section-item"}
+          = link_to section.title, paper_section_path(id:section.id)
+        
+          %i{class:"fa fa-edit section-edit"}
+          = link_to paper_section_path(paper_id:@paperID, section_id:section.id), method:'delete', data: {confirm:'本当に削除しますか？' }, remote: true do
+            %i{class:"fa fa-times"}
+      
+          #section-title-edit-show.modal
+            %p section titleを修正
+            = form_for @section, url: {controller:"sections", action: "update", id:section.id}, html:{method:"patch"}, remote: true do |f|
+              =f.text_field :title, value: section.title
+              =f.hidden_field :paper_id, value:@paperID
+              =f.submit 'save'
+            .close-modal
+              %i{class:'fa fa-2x fa-times'}
+
+.body-p
+  %h4 body
+  .sortable
+    - @sections.each do |section|
+      - if section.part == 'body'
+        - sectionId = 'list_' + section.id.to_s
+        
+        %li{id:sectionId, class:"section-item"}
+          = link_to section.title, paper_section_path(id:section.id)
+
+          %i{class:"fa fa-edit section-edit"}
+          = link_to paper_section_path(paper_id:@paperID, section_id:section.id), method:'delete', data: {confirm:'本当に削除しますか？' }, remote: true do
+            %i{class:"fa fa-times"}
+      
+          #section-title-edit-show.modal
+            %p section titleを修正
+            = form_for @section, url: {controller:"sections", action: "update", id:section.id}, html:{method:"patch"}, remote: true do |f|
+              =f.text_field :title, value: section.title
+              =f.hidden_field :paper_id, value:@paperID
+              =f.submit 'save'
+            .close-modal
+              %i{class:'fa fa-2x fa-times'}
+
+.conclusion-p  
+  %h4 conclusion
+  .sortable
+    - @sections.each do |section|
+      - if section.part == 'conclusion'
+        - sectionId = 'list_' + section.id.to_s
+        %li{id:sectionId, class:"section-item"}
+          = link_to section.title, paper_section_path(id:section.id)
+
+          %i{class:"fa fa-edit section-edit"}
+          = link_to paper_section_path(paper_id:@paperID, section_id:section.id), method:'delete', data: {confirm:'本当に削除しますか？' }, remote: true do
+            %i{class:"fa fa-times"}
+      
+          #section-title-edit-show.modal
+            %p section titleを修正
+            = form_for @section, url: {controller:"sections", action: "update", id:section.id}, html:{method:"patch"}, remote: true do |f|
+              =f.text_field :title, value: section.title
+              =f.hidden_field :paper_id, value:@paperID
+              =f.submit 'save'
+            .close-modal
+              %i{class:'fa fa-2x fa-times'}
+
+.preview-button
+  = link_to 'preview', paper_path(@paperID)

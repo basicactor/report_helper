@@ -1,0 +1,67 @@
+#outline-area
+  
+  #edit-paper-title-modal-trigger
+    %h3 
+      = @paper.title
+    
+    
+
+  #edit-paper-title-modal-show.modal
+    %p paper titleを修正
+    = form_for @paper, url: {controller:"papers", action: "update", id:@paper.id}, html:{method:"patch"}, remote: true do |f|
+      =f.text_field :title, value: @paper.title
+      =f.hidden_field :user_id, value:current_user.id
+      =f.submit 'save'
+
+    .close-modal
+      %i{class:'fa fa-2x fa-times'}
+      
+
+
+  #section-item-area
+    .intro-p
+      %h4 Intro
+      .sortable
+        - @sections.each do |section|
+          - if section.part == 'introduction'
+            - sectionId = 'list_' + section.id.to_s
+            %li{id:sectionId, class:"section-item"}
+              = link_to section.title, paper_section_path(id:section.id)
+            
+              = link_to paper_section_path(paper_id:@paperID, section_id:section.id), method:'delete', data: {confirm:'本当に削除しますか？' }, remote: true do
+                %i{class:"fa fa-times"}
+          
+       
+
+    .body-p
+      %h4 body
+      .sortable{'data-url':sort_paper_sections_path }
+        - @sections.each do |section|
+          - if section.part == 'body'
+            
+            %li{id:dom_id(section), class:"section-item"}
+              = link_to section.title, paper_section_path(id:section.id)
+
+              = link_to paper_section_path(paper_id:@paperID, section_id:section.id), method:'delete', data: {confirm:'本当に削除しますか？' }, remote: true do
+                %i{class:"fa fa-times"}
+         
+      
+
+    .conclusion-p  
+      %h4 conclusion
+      .sortable
+        - @sections.each do |section|
+          - if section.part == 'conclusion'
+            - sectionId = 'list_' + section.id.to_s
+            %li{id:sectionId, class:"section-item"}
+              = link_to section.title, paper_section_path(id:section.id)
+
+              = link_to paper_section_path(paper_id:@paperID, section_id:section.id), method:'delete', data: {confirm:'本当に削除しますか？' }, remote: true do
+                %i{class:"fa fa-times"}
+          
+           
+
+  .preview-button
+    = link_to 'preview', paper_path(@paperID), target:'_blank'
+
+

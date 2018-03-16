@@ -1,0 +1,52 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+/*----------- ここからDashboard----------------*/
+
+
+
+.paper-item{
+	list-style: none;
+    padding: 20px;
+    float: left;
+    border: 1px solid grey;
+    margin: 10px;
+	width:20%;
+	float:left;
+	cursor:pointer;
+	text-align:center;
+
+	.fa{
+		display:none;
+		float:right;
+		padding:0 20px;
+		padding: 0 5px;
+        font-size: 17px;
+	}
+
+	&:hover {
+	  background-color:rgba(0,0,0,0.1);
+	  .fa{
+	  	display:block;
+	  	cursor:pointer;
+	  }
+    }
+}
+
+/*newボタンは見れるようにする*/
+#paper-create-button .fa{
+	width:100%;
+	text-align:center;
+	display:block;
+	
+}
+
+.fa-eye:hover {
+	color:blue;
+}
+
+
+
+

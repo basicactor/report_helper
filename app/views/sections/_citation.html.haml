@@ -1,0 +1,31 @@
+
+- @citations.each do |citation|
+  %li{class:'citation-item'}
+    - if not citation.title ==""
+      = link_to citation.title, citation.url, target:'_blank'
+    - else
+      = link_to 'No Title', citation.url, target:'_blank'
+
+    %i{class:"fa fa-edit citation-edit"}
+
+    = link_to citation_path(citation.id), method:'delete', data: {confirm:'本当に削除しますか？' }, remote: true do
+      %i{class:"fa fa-times"}
+
+    .edit-citation-modal-show.modal
+      %p citationを修正
+      = form_for @citation, url: {controller:"citations", action: "update",id:citation.id}, html:{method:"patch"}, remote: true do |f|
+        =f.text_field :url, value:citation.url
+        =f.text_field :title, value:citation.title
+        =f.hidden_field :paper_id, value:@paperID
+        =f.hidden_field :section_id, value:@sectionID
+        =f.submit 'save'
+
+      .close-modal
+        %i{class:'fa fa-2x fa-times'}
+
+:javascript
+  $('.citation-edit').on('click',function(){
+    $(this).parent('.citation-item').addClass("active");
+    $(this).closest('.active').find('.modal').show();		
+
+  });

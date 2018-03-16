@@ -1,0 +1,38 @@
+// Place all the styles related to the Papers controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.preview-page {
+	width:50%;
+	margin:0 auto;
+	position:relative;
+
+	.preview-page-icon{
+	position:absolute;
+	right:0;
+	text-align:center;
+	background-color:rgba(0,0,0,0.2);
+	width:70px;
+	padding:5px;
+	}
+
+	h1{
+	text-align:center;
+	margin-bottom:30px;
+	padding:10px;
+	}
+}
+
+
+
+.section-itme-in-preview{
+	margin-bottom:30px;
+	h3{
+	margin-bottom:5px;
+	}
+
+	p{
+	text-align:justify;
+	}
+}

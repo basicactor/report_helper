@@ -1,0 +1,8 @@
+= form_for [@paper, @section], url: {action: "update"}, remote: true do |f|
+  = f.text_field :title, {placeholder:'Section Title'}
+  = f.text_area :text
+  = f.select :part, [["introduction", "introduction"], ["body", "body"], ["conclusion", "conclusion"]], :selected => "body"
+  = f.hidden_field :paper_id, value:@paperID
+  = f.submit 'save'
+
+

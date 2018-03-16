@@ -1,0 +1,38 @@
+$('#main-text-area').html(
+  '<%= j(render partial: 'sections/main-text-area') %>'
+);
+
+
+// 1.まず既存の位置にあるものを消す。
+var preChangePosition = '#section_' + '<%= @section.id %>';
+$(preChangePosition).remove();
+
+
+// Section selectの値によってappendする位置を変更。
+if ('<%= @section.part %>' == "body") {
+	$('.body-p').append(
+	'<li id="section_<%= @section.id %>"><a href="/papers/<%= @paperID %>/sections/<%= @section.id %>"><%= @section.title %></a></li>' 
+	);
+} else if ('<%= @section.part %>' == "introduction") {
+	$('.intro-p').append(
+	'<li id="section_<%= @section.id %>"><a href="/papers/<%= @paperID %>/sections/<%= @section.id %>"><%= @section.title %></a></li>' 
+	);
+} else {
+	$('.conclusion-p').append(
+	'<li id="section_<%= @section.id %>"><a href="/papers/<%= @paperID %>/sections/<%= @section.id %>"><%= @section.title %></a></li>' 
+	);
+}
+
+
+//追加したことをお知らせするアニメーション
+$('#section_<%= @section.id %>').animate({
+            fontSize: 25
+        }, 300 );
+
+$('#section_<%= @section.id %>').animate({
+            fontSize: 16,
+        }, 250, function(){
+        	$(this).css({
+        		color:"red"
+        	});
+        });

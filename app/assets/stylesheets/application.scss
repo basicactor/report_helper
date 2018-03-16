@@ -1,0 +1,88 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require jquery-ui
+ */
+@import "font-awesome";
+
+/*-------  ここから共通のCSS  --------*/
+
+html, body,
+ul, ol, li,
+h1, h2, h3, h4, h5, h6, p,
+form, input, div {
+  margin: 0;
+  padding: 0;
+  
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color:#323a45;
+
+  &:hover {
+  	color:#0dc0c0;
+  }
+}
+
+
+
+body {
+  -webkit-font-smoothing: antialiased;
+  font-family:'Hiragino Kaku Gothic ProN W3', sans-serif;
+  width:1440px;
+  font-size:14px;
+  font-weight:400;
+}
+
+/*-------  ここまで共通のCSS  --------*/
+
+/*-------  ここからheader  --------*/
+
+
+header {
+	width:100%;
+	height:50px;
+	line-height: 50px;
+	top:0;
+	background-color: gray;
+
+	a{
+		width:100%;
+		height:100%;
+	}
+}
+
+.header-logo {
+	float:left;
+	padding:15px;
+}
+
+.header-menu {
+	float:right;
+
+	ul li{
+		float:left;
+		right:0;
+		height:30px;
+		width:40px;
+		margin-right:20px;
+	}
+}
+
+/*-------  ここまでheader  --------*/
