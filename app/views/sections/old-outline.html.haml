@@ -1,0 +1,39 @@
+/ .intro-p
+    /   %h4 Intro
+    /   .sortable
+    /     - @sections.each do |section|
+    /       - if section.part == 'introduction'
+    /         - sectionId = 'list_' + section.id.to_s
+    /         %li{id:sectionId, class:"section-item"}
+    /           = link_to section.title, paper_section_path(id:section.id)
+            
+    /           = link_to paper_section_path(paper_id:@paperID, section_id:section.id), method:'delete', data: {confirm:'本当に削除しますか？' }, remote: true do
+    /             %i{class:"fa fa-times"}
+          
+       
+
+    / .body-p
+    /   %h4 body
+    /   .sortable{'data-url':sort_paper_sections_path }
+    /     - @sections.each do |section|
+    /       - if section.part == 'body'
+            
+    /         %li{id:dom_id(section), class:"section-item"}
+    /           = link_to section.title, paper_section_path(id:section.id)
+
+    /           = link_to paper_section_path(paper_id:@paperID, section_id:section.id), method:'delete', data: {confirm:'本当に削除しますか？' }, remote: true do
+    /             %i{class:"fa fa-times"}
+         
+      
+
+    / .conclusion-p  
+    /   %h4 conclusion
+    /   .sortable
+    /     - @sections.each do |section|
+    /       - if section.part == 'conclusion'
+    /         - sectionId = 'list_' + section.id.to_s
+    /         %li{id:sectionId, class:"section-item"}
+    /           = link_to section.title, paper_section_path(id:section.id)
+
+    /           = link_to paper_section_path(paper_id:@paperID, section_id:section.id), method:'delete', data: {confirm:'本当に削除しますか？' }, remote: true do
+    /             %i{class:"fa fa-times"}

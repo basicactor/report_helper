@@ -13,8 +13,9 @@ class SectionsController < ApplicationController
     @paperID = params[:paper_id]
     @sectionID = params[:id]
     @paper = Paper.find(params[:paper_id])
-    @section = Section.find(params[:id])
     
+    
+    @section = Section.find(params[:id])
     @sections = Paper.find(params[:paper_id]).sections.order(:position)
 
     @citation = Citation.new
@@ -52,7 +53,7 @@ class SectionsController < ApplicationController
 
   private
     def section_params
-      params.require(:section).permit(:title, :text, :part, :paper_id,:position)
+      params.require(:section).permit(:title, :text, :paper_id,:position)
     end
     #他のユーザーのmainページにアクセス出来ないようにする。
     def correct_user

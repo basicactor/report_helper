@@ -1,11 +1,13 @@
 #main-area  
-  #main-text-area
+  #main-text-area{'data-url':paper_section_path}
     = form_for [@paper, @section], url: {action: "update"}, remote: true do |f|
       = f.text_field :title, {placeholder:'Section Title'}
       = f.text_area :text
-      = f.select :part, [["introduction", "introduction"], ["body", "body"], ["conclusion", "conclusion"]], :selected => "body"
+      / = f.select :part, [["introduction", "introduction"], ["body", "body"], ["conclusion", "conclusion"]], :selected => "body"
       = f.hidden_field :paper_id, value:@paperID
-      = f.submit 'save'
+      .create-temp
+  .done
+
   
 
   = link_to 'new section', paper_sections_path( "section"=>{"title"=>"", "text"=>"", "part"=>"", "paper_id"=>@paperID}), method:'post'

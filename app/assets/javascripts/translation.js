@@ -22,16 +22,7 @@ $(document).on('turbolinks:load', function(){
             $('#complete').html("Ajax終了時に呼ばれるメソッド");
         });
     });*/
-    $('#ajax-button').click(function(){
-        $.ajax({
-        url:'/papers/4/sections',
-        type:"POST",
-        data:{"section": {"title":"", "text":"", "part":"", "paper_id":4,"position":""},
-              "authenticity_token" : $('meta[name="csrf-token"]').attr('content')
-        }
-
-        });
-    });
+    
 
   
 

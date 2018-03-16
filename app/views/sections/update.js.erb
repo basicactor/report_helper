@@ -3,25 +3,17 @@ $('#main-text-area').html(
 );
 
 
-// 1.まず既存の位置にあるものを消す。
+// 1.まず既存のものを消す。
 var preChangePosition = '#section_' + '<%= @section.id %>';
 $(preChangePosition).remove();
 
 
 // Section selectの値によってappendする位置を変更。
-if ('<%= @section.part %>' == "body") {
-	$('.body-p').append(
+
+
+$('#section-item-area').append(
 	'<li id="section_<%= @section.id %>"><a href="/papers/<%= @paperID %>/sections/<%= @section.id %>"><%= @section.title %></a></li>' 
 	);
-} else if ('<%= @section.part %>' == "introduction") {
-	$('.intro-p').append(
-	'<li id="section_<%= @section.id %>"><a href="/papers/<%= @paperID %>/sections/<%= @section.id %>"><%= @section.title %></a></li>' 
-	);
-} else {
-	$('.conclusion-p').append(
-	'<li id="section_<%= @section.id %>"><a href="/papers/<%= @paperID %>/sections/<%= @section.id %>"><%= @section.title %></a></li>' 
-	);
-}
 
 
 //追加したことをお知らせするアニメーション
