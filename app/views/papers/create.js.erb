@@ -10,7 +10,7 @@ $('.paper-list').append('<li class="paper-item"><p><%= @paper.title %></p></li>'
 $.ajax({
 	url:'/papers/<%= @paper.id %>/sections',
 	type:"POST",
-	data:{"section": {"title":"", "text":"", "part":"", "paper_id":"<%= @paper.id%>","position":""},
+	data:{"section": {"title":"", "text":"", "paper_id":"<%= @paper.id%>","position":""},
 		  "authenticity_token" : $('meta[name="csrf-token"]').attr('content')
 		}
 
