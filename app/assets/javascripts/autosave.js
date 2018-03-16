@@ -2,6 +2,11 @@ ready = function() {
 $(document).on('turbolinks:load', function(){
         
 
+$('.edit_section').on('submit', function(e){
+  e.preventDefault(); // サブミット動作をキャンセル
+});
+
+
   if ($('.create-temp')) {
         window.tempTimer = null
         $('.edit_section').on('keydown',(function(){ 
@@ -21,6 +26,7 @@ function updateText(){
     var sectionTitle = $('#section_title').val();
     var sectionText = $('#section_text').val();
 
+    if (sectionTitle != "" || sectionText != ""){
     $.ajax({ 
       url:$(this).attr('action'), 
       type: 'PATCH', 
@@ -29,6 +35,7 @@ function updateText(){
         }
 
     })
+    }
 
 }
 

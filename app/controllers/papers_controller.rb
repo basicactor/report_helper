@@ -7,14 +7,11 @@ class PapersController < ApplicationController
     @papers = User.find(current_user.id).papers
   end
 
-
+  #preview page
   def show
     @paper = Paper.find(params[:id])
     
-    @sections = Paper.find(@paper.id).sections
-    @intro = @sections.where(part:'introduction').order(:position)
-    @body = @sections.where(part:'body').order(:position)
-    @conc = @sections.where(part:'conclusion').order(:position)
+    @sections = Paper.find(@paper.id).sections.order(:position)
 
     @citations = Citation.where(paper_id:@paper.id).order(:title)
   end

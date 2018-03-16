@@ -40,6 +40,9 @@ class SectionsController < ApplicationController
   	@section = Section.find(params[:id])
   	@section.update_attributes(section_params)
     @paperID = params[:paper_id]
+
+    #update.js.erbに渡す値
+    @sections =Paper.find(@section.paper_id).sections
   end
 
   def destroy

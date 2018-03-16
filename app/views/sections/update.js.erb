@@ -3,7 +3,7 @@ $('#main-text-area').html(
 );
 
 
-// 1.まず既存のものを消す。
+/*// 1.まず既存のものを消す。
 var preChangePosition = '#section_' + '<%= @section.id %>';
 $(preChangePosition).remove();
 
@@ -12,8 +12,12 @@ $(preChangePosition).remove();
 
 
 $('#section-item-area').append(
-	'<li id="section_<%= @section.id %>"><a href="/papers/<%= @paperID %>/sections/<%= @section.id %>"><%= @section.title %></a></li>' 
-	);
+	'<li id="section_<%= @section.id %>" class="section-item ui-sortable-handle"><a href="/papers/<%= @paperID %>/sections/<%= @section.id %>"><%= @section.title %></a></li>' 
+	);*/
+
+$('#section-item-area').html(
+  '<%= j(render partial: 'sections/outline-area-update') %>'
+);
 
 
 //追加したことをお知らせするアニメーション

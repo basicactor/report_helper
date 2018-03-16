@@ -14,9 +14,7 @@
       $(".done").text('saving...');
       window.tempTimer = window.setTimeout(function(){
         $(".done").text('All changes saved');
-        $(".edit_section").ajaxSubmit({
-          data:{"authenticity_token": $('meta[name="csrf-token"]').attr('content')}
-        });
+        updateText();
 
       }, 3500);
     }));

@@ -1,11 +1,23 @@
 .sortable{'data-url':sort_paper_sections_path }
-  
   - @sections.each do |section|
     %li{id:dom_id(section),class:"section-item"}
       = link_to section.title, paper_section_path(id:section.id)
 
       = link_to paper_section_path(paper_id:@paperID, section_id:section.id), method:'delete', data: {confirm:'本当に削除しますか？' }, remote: true do
-        %i{class:"fa fa-times"}    
+        %i{class:"fa fa-times"}
 
-.preview-button
-  = link_to 'preview', paper_path(@paperID)
+
+
+:javascript
+  $(".sortable").sortable({
+    update:function(e, ui) {
+      $.ajax({
+        url:$(this).data('url'),
+        type:"PATCH",
+        headers:{"X-CSRF-Token": $('meta[name="csrf-token"]').attr('content')},
+        data:$(this).sortable('serialize')
+        });
+
+    }
+
+  });

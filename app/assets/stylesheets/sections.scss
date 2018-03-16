@@ -42,12 +42,7 @@
 	}
 
 	#section_text {
-		background-color:pink;
-		transition:all 0.5s;
-
-		&:focus {
-			background-color:white;
-		}
+		
 	}
 
 	
@@ -141,6 +136,11 @@
 
 .close-modal{
 	cursor:pointer;
+}
+
+#section-item-area {
+	width:100%;
+	height:100%;
 }
 
 

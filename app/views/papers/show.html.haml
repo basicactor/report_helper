@@ -6,26 +6,14 @@
     = @paper.title 
      
 
-  - @intro.each do |section|
+  - @sections.each do |section|
     .section-itme-in-preview
       %h3
         = section.title
       %p
         = section.text
  
-  - @body.each do |section|
-    .section-itme-in-preview
-      %h3
-        = section.title
-      %p
-        = section.text
-
-  - @conc.each do |section|
-    .section-itme-in-preview
-      %h3
-        = section.title
-      %p
-        = section.text 
+  
 
   .citation-in-preview
     %h2 -Citation List-

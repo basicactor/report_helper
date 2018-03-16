@@ -29,8 +29,8 @@ $(document).on('turbolinks:load', function(){
         $(document).on('change keydown keypress keyup blur focus','#section_text',(counter));
 
     });
-});
 
+});
 };
 $(document).ready(ready)
 $(document).on('page:load', ready)
