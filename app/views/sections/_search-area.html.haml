@@ -97,8 +97,8 @@
       
 
       #citation-list
-        - @citations.each_with_index do |citation,i|
-          %li{class:'citation-item', id:i}
+        - @citations.each do |citation|
+          %li{class:'citation-item'}
             = link_to citation.title, citation.url, target:'_blank' 
             
             %i{class:"fa fa-edit citation-edit"}

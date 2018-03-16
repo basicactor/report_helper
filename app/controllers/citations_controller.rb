@@ -4,14 +4,19 @@ class CitationsController < ApplicationController
 
      #create.js.erbに渡す変数を作って置く
      @citations = Section.find(citation_params[:section_id]).citations
+     @paperID = @citation.paper_id
+     @sectionID = @citation.section_id
+
   end
 
   def update
     @citation = Citation.find(params[:id])
     @citation.update_attributes(citation_params)
     
+     #update.js.erbに渡す変数を作って置く
     @sectionID = @citation.section_id
     @citations = Section.find(@sectionID).citations
+    @paperID = @citation.paper_id
     
   end
 
