@@ -47,4 +47,8 @@ class PapersController < ApplicationController
   def paper_params
     params.require(:paper).permit(:title, :user_id)
   end
+  def correct_user
+      @user = Paper.find(params[:id]).user_id
+      redirect_to(root_path) unless @user == current_user.id
+  end
 end

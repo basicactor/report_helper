@@ -3,6 +3,6 @@ $('#edit-paper-title-modal-show.modal').fadeOut();
 $('#edit-paper-title-modal-trigger').html('<h3>'+ '<%= @paper.title %>' + '</h3>');
 
 $('.paper-list').html(
-  '<%= j(render partial: 'home/dashboard-update') %>'
+  '<%= j(render partial: 'papers/dashboard-update') %>'
 );
 
