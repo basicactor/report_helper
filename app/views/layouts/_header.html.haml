@@ -1,17 +1,44 @@
-%header
-	%nav
-	.header-logo
-		%a{href:'/'}　Top page
-		
-		
-	.header-menu
-		- if user_signed_in?
-			%strong= link_to current_user.username, dashboard_path
-			= link_to 'プロフィール変更', edit_user_registration_path
-			= link_to 'ログアウト', destroy_user_session_path, method: :delete
-		- else
-			= link_to 'サインアップ', new_user_registration_path
-			= link_to 'ログイン', new_user_session_path
-	
+.header
+  .container
+    .header-logo
+      = link_to root_path do
+        %i{class:"fa fa-home"}
+
+    .header-menu
+      - if user_signed_in?
+        = link_to 'Dashboard', dashboard_path, {class:"to-dashboard"} 
+        %i{class:"fa fa-user-circle",id:"profile-modal-trigger"}
+        #profile-modal-show.modal
+          %li{class:"profile-list profile-name"}
+            = current_user.username 
+          %li{class:"profile-list"}
+            = link_to 'プロフィール変更', edit_user_registration_path 
+          %li{class:"profile-list"}
+            = link_to 'ログアウト', destroy_user_session_path, method: :delete
+          
+
+
+      - else
+        = link_to 'サインアップ', new_user_registration_path
+        = link_to 'ログイン', new_user_session_path
+
         
-           
+:javascript
+  
+  $('#profile-modal-trigger').on('click', function(){
+    $('#profile-modal-show').fadeIn();
+  });
+
+  $(document).click(function(e) {
+  // クリックした場所がmenu-wrapper(領域内とみなす範囲)に無ければmenuを消す
+    if(!$.contains($('.header-menu')[0], e.target)){
+      $('#profile-modal-show').hide();
+    }
+  });
+
+
+ 
+
+
+
+

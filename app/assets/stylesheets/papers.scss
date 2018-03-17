@@ -36,3 +36,59 @@
 	text-align:justify;
 	}
 }
+
+/* =============================================== Dashboard ======================================== */
+h2.dashboard-title {
+  text-align: center;
+  margin-bottom:20px;
+}
+
+
+.paper-item{
+	background-color:white;
+	list-style: none;
+  padding: 20px;
+  float: left;
+  margin: 10px;
+	width:30%;
+	float:left;
+	cursor:pointer;
+	text-align:center;
+	box-shadow: 7px 7px 9px 0px darkgrey;
+
+	a {
+		font-size:16px;
+	}
+
+	.fa{
+		display:none;
+		float:right;
+		padding:0 20px;
+		padding: 0 5px;
+    font-size: 20px;
+	}
+
+	&:hover {
+	  background-color:rgba(0,0,0,0.1);
+	  .fa{
+	  	display:block;
+	  	cursor:pointer;
+	  }
+    }
+}
+
+/*newボタンは見れるようにする*/
+#paper-create-button .fa{
+	width:100%;
+	text-align:center;
+	display:block;
+	
+}
+
+.fa-eye:hover {
+	color:blue;
+}
+
+
+
+

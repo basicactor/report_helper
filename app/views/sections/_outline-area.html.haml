@@ -1,4 +1,4 @@
-#outline-area
+#outline-area.main-component
   
   #edit-paper-title-modal-trigger
     %h3 
@@ -30,6 +30,7 @@
      
 
   .preview-button
-    = link_to 'preview', paper_path(@paperID), target:'_blank'
+    = link_to paper_path(@paperID), target:"_blank" do
+      %i{class:"fa fa-eye preview"}
 
 

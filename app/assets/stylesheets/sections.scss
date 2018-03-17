@@ -2,22 +2,51 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+/*================================ component 共通========================================*/
+.main-page{
+	height:700px;
+}
+.main-component{
+	float:left;
+	margin-right:10px;
+}
+
 /*-------  ここからmain-area  --------*/
 
 #main-area {
-	width: 45%;
-	height:500px;
-	position: absolute;
-	left:27%;
+	height:450px;
+	width:50%;
+	position:relative;
+
+
+
+	.new-section-button{
+		position:absolute;
+		width:9%;
+		height:50px;
+		right:0;
+		top:0;
+		background-color:#fff;
+		text-align:center;
+
+		a{
+			font-size: 30px;
+		    height: 100%;
+		    width: 100%;
+		    display: inline-block;
+		}
+	}
 }
 
 #section_title {
-	width: 100%;
+	width: 90%;
 	height:50px;
 	font-size: 24px;
 	text-align: center;
-    font-weight: bold;
+  font-weight: bold;
 	vertical-align: middle;
+	color:white;
 
 }
 
@@ -30,10 +59,10 @@
 	border:none;
 	
 	#section_title {
-	    overflow: hidden;
-	    background-image: -webkit-linear-gradient(#fed6e3 0%, #ffaaaa 100%);
-	    background-image: linear-gradient(#fed6e3 0%, #ffaaaa 100%);
-		transition:all 0.5s;
+    overflow: hidden;
+    background-image: -webkit-linear-gradient(45deg, red, blue);
+    background-image: linear-gradient(45deg, red, blue);
+	  transition:all 0.5s;
 
 
 		&:focus {
@@ -41,9 +70,6 @@
 		}
 	}
 
-	#section_text {
-		
-	}
 
 	
 }
@@ -62,6 +88,7 @@
 	background-color: white;
 	font-size: 18px;
 	padding: 5%;
+	margin-top:5px;
 }
 
 .main-area-text-noneditable {
@@ -72,17 +99,42 @@
 	padding: 5%;
 }
 
-/*-------  ここまでmain-area  --------*/
+.save-status{
+  width: 100%;
+  height: 20px;
+  background: white;
+  margin-bottom: 5px;
+  text-align: center;
+}
 
-/*-------  ここからoutline-area  --------*/
+#count{
+	float:left;
+	margin-right: 20px;
+}
+
+.counter-words{
+	float:left;
+	margin-right: 20px;
+}
+
+#counter-box {
+  background: white;
+  height: 30px;
+  padding:5px;
+}
+
+
+/*===================================  ここまで　main-area  ==================================*/
+
+/*===================================   ここから　outline-area  ==================================*/
 
 
 #outline-area {
-	width: 27%;
-	background-color:orange;
+	background-color:white;
 	height:500px;
-	position:absolute;
-	left:0;
+	width:23%;
+	position:relative;
+	
 
 	.part-block {
 		margin-left:20px;
@@ -99,6 +151,7 @@
 	width:100%;
 	height:30px;
 	text-align:center;
+	margin-top:15px;
 
 
 	&:hover {
@@ -111,26 +164,13 @@
 
 
 #edit-paper-title-modal-show {
-  /* position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0; */
+
   background-color: rgba(0, 0, 0, 0.6);
   z-index: 100;
   
 }
 
 .modal {
-  /* position: absolute;
-  top: 20%;
-  left: 34%; */
-  background-color: #e6ecf0;
-  padding: 20px 0 40px;
-  border-radius: 10px;
-  width: 50%;
-  height: 50px;
-  text-align: center;
   display:none;
 }
 
@@ -141,6 +181,23 @@
 #section-item-area {
 	width:100%;
 	height:100%;
+
+	li{
+		padding: 5px 10px;
+    background: white;
+    margin: 5px 0;
+    cursor: pointer;
+    width:100%;
+
+    &:hover{
+    	  box-shadow: 1px 4px 15px 1px darkgrey;
+    }
+
+    a {
+    	font-size:15px;
+
+    }
+	}
 }
 
 
@@ -166,13 +223,13 @@
 }
 
 .preview-button {
-	width:100px;
-	margin-top:200px;
 	cursor:pointer;
-	background-color:blue;
+	position:absolute;
+	right:5px;
+	bottom:0;
 	
-	a {
-		color:white;
+	.fa {
+		font-size:35px;
 	}
 }
 
@@ -180,18 +237,16 @@
 /*===========================================================  ここからsearch-area  ==========================================================*/
 
 
-
-
 #search-area {
-	width: 28%;
-	background-color:yellow;
+	background-color:white;
 	height:500px;
-	position: absolute;
-	right:0;
+	width: 25%;
+  margin: 0;
+
 }
 
 .filter-tab-area {
-	width: 70%;
+	width: 80%;
 	height:70px;
 	margin:0 auto;
 }
@@ -201,14 +256,13 @@
 	width: 100px;
 	height:30px;
 	float:left;
-	padding:5px;
-	margin-right:10px;
+	margin: 5px;
+  padding: 5px;
 	text-align: center;
 	cursor: pointer;
-	vertical-align: top;
 
 	&:hover {
-		background-color: pink;
+		background-color: white;
 	}
 }
 
@@ -221,17 +275,19 @@
 
 .filter-tab-area .active,
 .filter-tab-area-academic-search .active {
-	background-color: pink;
+	background-color: white;
 }
 
 .search-box {
 	margin:20px auto;
+	padding:20px;
 	width: 90%;
 	height:400px;
 	background-color: white;
+	border-top: 2px solid lightgrey;
 }
 
-/*-------  ここからHQ search  --------*/
+/*-------  ここからHQ search  ---------------------------------------------------------------*/
 
 
 .filter-tab-academic-search {
@@ -254,7 +310,7 @@
     }
 }
 
-/*-------  ここからcitation  --------*/
+/*-------  ここからcitation  ---------------------------------------------------------------*/
 
 
 

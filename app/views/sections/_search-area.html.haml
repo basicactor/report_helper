@@ -1,4 +1,4 @@
-#search-area
+#search-area.main-component
   .filter-tab-area
     #translation.filter-tab.active 翻訳辞書
     #syn.filter-tab 同義語
@@ -7,7 +7,6 @@
   
   #search-boxes
     .search-box.translation
-      %h1 翻訳辞書
       %form#form-translation
         %li
           %input{:checked => "checked",:type => "radio", :name => "translation", :value => "Ja-to-En"}/
@@ -20,7 +19,6 @@
       #done
       #error
       #weblio
-      %input#ajax-button{:type => "button", :value => "click"}/
 
      
     

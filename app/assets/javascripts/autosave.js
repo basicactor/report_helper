@@ -11,9 +11,9 @@ $('.edit_section').on('submit', function(e){
         window.tempTimer = null
         $('.edit_section').on('keydown',(function(){ 
             window.clearTimeout(tempTimer);
-            $(".done").text('saving...');
+            $(".save-status").text('saving...');
             window.tempTimer = window.setTimeout(function(){
-                $(".done").text('All changes saved');
+                $(".save-status").text('All changes saved');
                 updateText();　//定義した関数を使う
 
             }, 3500);
