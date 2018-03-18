@@ -25,10 +25,11 @@ $('.edit_section').on('submit', function(e){
 function updateText(){ 
     var sectionTitle = $('#section_title').val();
     var sectionText = $('#section_text').val();
+    var url = $('#main-text-area').data('url');
 
     if (sectionTitle != "" || sectionText != ""){
     $.ajax({ 
-      url:$(this).attr('action'), 
+      url:url,
       type: 'PATCH', 
       data:{"section": {"title":sectionTitle, "text":sectionText},
           "authenticity_token" : $('meta[name="csrf-token"]').attr('content')
