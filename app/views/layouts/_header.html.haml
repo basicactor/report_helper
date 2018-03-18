@@ -1,8 +1,11 @@
 .header
   .container
-    .header-logo
+    .header-home
       = link_to root_path do
         %i{class:"fa fa-home"}
+
+    .header-center-logo
+      Paper Help
 
     .header-menu
       - if user_signed_in?
@@ -23,18 +26,7 @@
         = link_to 'ログイン', new_user_session_path
 
         
-:javascript
-  
-  $('#profile-modal-trigger').on('click', function(){
-    $('#profile-modal-show').fadeIn();
-  });
 
-  $(document).click(function(e) {
-  // クリックした場所がmenu-wrapper(領域内とみなす範囲)に無ければmenuを消す
-    if(!$.contains($('.header-menu')[0], e.target)){
-      $('#profile-modal-show').hide();
-    }
-  });
 
 
  

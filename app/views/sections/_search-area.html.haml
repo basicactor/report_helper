@@ -107,16 +107,16 @@
               %i{class:"fa fa-times"}
 
             .edit-citation-modal-show.modal
-              %p citationを修正
+              %p Citationを修正
               = form_for @citation, url: {controller:"citations", action: "update",id:citation.id}, html:{method:"patch"}, remote: true do |f|
                 =f.text_field :url, value:citation.url
                 =f.text_field :title, value:citation.title
                 =f.hidden_field :paper_id, value:@paperID
                 =f.hidden_field :section_id, value:@sectionID
-                =f.submit 'save'
+                %br
+                =f.button 'Update'
 
-              .close-modal
-                %i{class:'fa fa-2x fa-times'}
+           
 
 
 

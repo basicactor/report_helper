@@ -201,6 +201,10 @@
   display:none;
 }
 
+.modal-active{
+	display:block;
+}
+
 .close-modal{
 	cursor:pointer;
 }
@@ -353,6 +357,11 @@ button[type="submit"] .fa{
 
 .citation{
 	position:relative;
+
+		form{
+			border-bottom:2px solid darkgrey;
+			padding-bottom:20px;
+		}
 		button{
 			height: 50px;
 	    width: 50px;
@@ -367,9 +376,13 @@ button[type="submit"] .fa{
 }
 
 .citation-item{
-	width:70%;
-	float:left;
-	text-decoration:underline;
+	width: 100%;
+  float: left;
+  text-decoration: underline;
+  margin-top: 12px;
+  height: 30px;
+  padding: 8px;
+  font-size: 16px;
 
 	.fa{
 		display:none;
@@ -380,7 +393,7 @@ button[type="submit"] .fa{
 	}
 
 	&:hover {
-	  background-color:rgba(0,0,0,0.1);
+	  box-shadow: 1px 4px 15px 1px darkgrey;
 	  .fa{
 	  	display:block;
 	  	cursor:pointer;
@@ -394,6 +407,38 @@ button[type="submit"] .fa{
 
 .fa-times:hover{
 	color:red;
+}
+
+.edit-citation-modal-show{
+	z-index: 100;
+  width: 70%;
+  height: 140px;
+  position: absolute;
+  background-color: #e4d1d1;
+  box-shadow: 0 2px 2px darkgrey;
+  border-radius: 5px;
+  margin-top: 5px;
+  text-align: center;
+  padding: 10px;
+
+  &:before{
+    content: "";
+    position: absolute;
+    top: -28px;
+    left: 10%;
+    margin-left: -15px;
+    border: 15px solid transparent;
+    border-bottom: 15px solid #e4d1d1;
+    box-shadow: 0 0px 0px 0px darkgrey;
+    border-radius: 5px;
+    }
+
+  button{
+  	width: 80%;
+    height: 30px;
+    position:inherit;
+    margin:10px auto;
+  }
 }
 
 
