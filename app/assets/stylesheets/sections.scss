@@ -359,7 +359,6 @@ button[type="submit"] .fa{
 	position:relative;
 
 		form{
-			border-bottom:2px solid darkgrey;
 			padding-bottom:20px;
 		}
 		button{
@@ -375,12 +374,16 @@ button[type="submit"] .fa{
 	}
 }
 
+#citation-list{
+  width:100%;
+  border-top:2px solid darkgrey;
+}
+
 .citation-item{
 	width: 100%;
   float: left;
   text-decoration: underline;
   margin-top: 12px;
-  height: 30px;
   padding: 8px;
   font-size: 16px;
 

@@ -20,9 +20,6 @@
         =f.hidden_field :section_id, value:@sectionID
         =f.submit 'save'
 
-      .close-modal
-        %i{class:'fa fa-2x fa-times'}
-
 :javascript
   $('.citation-edit').on('click',function(){
     $(this).parent('.citation-item').addClass("active");
