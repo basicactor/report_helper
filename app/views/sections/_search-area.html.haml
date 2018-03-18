@@ -15,7 +15,8 @@
           %input{:type => "radio", :name => "translation", :value => "En-to-Ja"}/
           英-> 日        
         %input#word{:name => "word", :type => "text"}/
-        %button{:type => "submit"} 検索
+        %button{:type => "submit"} 
+          %i{class:"fa fa-search"}
       #done
       #error
       #weblio
@@ -26,8 +27,8 @@
     
     .search-box.academic-search
       .filter-tab-area-academic-search
-        #site-search.filter-tab-academic-search.active Specific Site Search
-        #thesis-search.filter-tab-academic-search Thesis Search
+        #site-search.filter-tab-academic-search.active Web Site 
+        #thesis-search.filter-tab-academic-search Thesis 
 
       #hq-search-boxes
         .nq-search-box.site-search
@@ -61,7 +62,8 @@
               %input{:type => "checkbox", :value => "nytimes.com"}/
               New York Times
             %input.search-word{:type => "text"}/
-            %button{:type => "submit"} 検索
+            %button{:type => "submit"} 
+              %i{class:"fa fa-search"}
 
         .nq-search-box.thesis-search
           %form#thesis-search-form
@@ -82,7 +84,8 @@
             California Institute of Technology Thesis    
             
             %input.search-word{:type => "text"}/
-            %button{:type => "submit"} 検索
+            %button{:type => "submit"} 
+              %i{class:"fa fa-search"}
     
     .search-box.citation
       %h3 Save Citation URL here
@@ -91,7 +94,8 @@
         =f.text_field :title, {placeholder: 'Title'}
         =f.hidden_field :paper_id, value:@paperID
         =f.hidden_field :section_id, value:@sectionID
-        =f.submit 'save'
+        =f.submit 
+        %i{class:"fa fa-save"}
       
 
       #citation-list
