@@ -6,6 +6,7 @@
 /*================================ component 共通========================================*/
 .main-page{
 	height:700px;
+	margin-top:50px;
 }
 .main-component{
 	float:left;
@@ -133,6 +134,10 @@
 	height:500px;
 	width:23%;
 	position:relative;
+
+	input[type="text"]{
+		height:24px;
+	}
 	
 
 	.part-block {
@@ -148,24 +153,47 @@
 
 #edit-paper-title-modal-trigger{
 	width:100%;
-	height:30px;
+	height:40px;
 	text-align:center;
 	margin-top:15px;
-
-
-	&:hover {
-		cursor:pointer;
-		background-color:grey;
-		transition:all 0.3s;
-	}
+	border-bottom: 2px solid darkgrey;
+  cursor:pointer;
 }
 
 
-
 #edit-paper-title-modal-show {
+	z-index:100;
+  width: 100%;
+  height: 70px;
+  position:absolute;
+  background-color:#e4d1d1;
+  box-shadow:0 2px 2px darkgrey;
+  border-radius:5px;
+  margin-top:5px;
 
-  background-color: rgba(0, 0, 0, 0.6);
-  z-index: 100;
+  &:before{
+    content: "";
+    position: absolute;
+    top: -28px;
+    right: 50%;
+    margin-left: -15px;
+    border: 15px solid transparent;
+    border-bottom: 15px solid #e4d1d1;
+    box-shadow: 0 0px 0px 0px darkgrey;
+    border-radius: 5px;
+    }
+
+  p{
+  	text-align:center;
+  	padding: 10px;
+  }
+
+  form{
+  	width:70%;
+  	float:left;
+  	margin-left: 20px;
+  }
+
   
 }
 
@@ -180,6 +208,7 @@
 #section-item-area {
 	width:100%;
 	height:100%;
+	margin-top: 20px;
 
 	li{
 		padding: 5px 10px;
@@ -242,6 +271,12 @@
 	width: 25%;
   margin: 0;
 
+ 	input[type="text"]{
+		height:24px;
+		margin-top:5px;
+	}
+  /* citationのsaveボタン */
+
 }
 
 .filter-tab-area {
@@ -286,10 +321,6 @@
 	border-top: 2px solid lightgrey;
 }
 
-input#word {
-  height: 25px;
-  margin-top: 10px;
-}
 
 button[type="submit"] .fa{
 	font-size:20px;
@@ -320,7 +351,20 @@ button[type="submit"] .fa{
 
 /*-------  ここからcitation  ---------------------------------------------------------------*/
 
-
+.citation{
+	position:relative;
+		button{
+			height: 50px;
+	    width: 50px;
+	    background: green;
+	    position: absolute;
+	    top: 25px;
+	    font-size: 20px;
+	    border-radius: 10px;
+	    margin-left: 5px;
+	    color:white;
+	}
+}
 
 .citation-item{
 	width:70%;

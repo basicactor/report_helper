@@ -1,18 +1,19 @@
 
 .container
   %h2{class:"dashboard-title"} Dashboard
-  .paper-list
-    %li{class:"paper-item",id:"paper-create-button"} 
-      %i{class:"fa fa-plus-square"} new
-    #new-paper-modal-create-show.modal
-      %p 新しいPaperを作る
-      = form_for @paper, remote:true do |f|
-        =f.text_field :title, {placeholder: "Paper's Title"}
-        =f.hidden_field :user_id, value:current_user.id
-        =f.submit 'save'
 
-      .close-modal
-        %i{class:'fa fa-2x fa-times'}
+  
+  
+  .paper-create
+    %li{class:"paper-item",id:"paper-create-modal-trigger"}     
+      %i{class:"fa fa-plus-square"}
+      #new-paper-modal-create-show.modal
+        = form_for @paper, remote:true do |f|
+          =f.text_field :title, {placeholder: "New Paper's Title"}
+          =f.hidden_field :user_id, value:current_user.id
+          =f.submit 'Create'
+  
+  .paper-list
     - @papers.each do |paper|
       %li{class:"paper-item"}
         = link_to paper.title, paper_section_path(paper_id:paper.id,id:'new')
@@ -31,7 +32,16 @@
             =f.text_field :title, value: paper.title
             =f.hidden_field :user_id, value:current_user.id
             =f.submit 'save'
-          .close-modal
-            %i{class:'fa fa-2x fa-times'}
+          
 
+:javascript
+  $('#paper-create-modal-trigger').on('click',function(){
+    $('#new-paper-modal-create-show').fadeIn();
+  });
 
+  $(document).click(function(e) {
+  // クリックした場所がmenu-wrapper(領域内とみなす範囲)に無ければmenuを消す
+    if(!$.contains($('.paper-create')[0], e.target)){
+      $('#new-paper-modal-create-show').hide();
+    }
+  });

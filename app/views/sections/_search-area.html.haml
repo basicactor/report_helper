@@ -23,7 +23,7 @@
 
      
     
-    .search-box.syn 同義語検索
+    .search-box.syn 同義語検索 準備中
     
     .search-box.academic-search
       .filter-tab-area-academic-search
@@ -88,15 +88,13 @@
               %i{class:"fa fa-search"}
     
     .search-box.citation
-      %h3 Save Citation URL here
       = form_for @citation, remote: true do |f|
         =f.text_field :url, {placeholder: 'URL'}
         =f.text_field :title, {placeholder: 'Title'}
         =f.hidden_field :paper_id, value:@paperID
         =f.hidden_field :section_id, value:@sectionID
-        =f.submit 
-        %i{class:"fa fa-save"}
-      
+        =f.button 'save'
+
 
       #citation-list
         - @citations.each do |citation|

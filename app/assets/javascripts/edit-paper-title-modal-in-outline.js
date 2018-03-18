@@ -6,11 +6,14 @@ $(document).on('turbolinks:load', function(){
 		$('#edit-paper-title-modal-show').fadeIn();
 	});
 
-	$('.close-modal').on('click', function(){
-		$('#edit-paper-title-modal-show').fadeOut();
+  $(document).click(function(e) {
+  // クリックした場所がmenu-wrapper(領域内とみなす範囲)に無ければmenuを消す
+    if(!$.contains($('#outline-area')[0], e.target)){
+      $('#edit-paper-title-modal-show').hide();
+    }
+  });
 
 
-	});
 
 });
 };

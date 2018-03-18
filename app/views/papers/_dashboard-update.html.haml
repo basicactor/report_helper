@@ -1,14 +1,3 @@
-%li{class:"paper-item",id:"paper-create-button"} 
-  %i{class:"fa fa-plus-square"} new
-#new-paper-modal-create-show.modal
-  %p 新しいPaperを作る
-  = form_for @paper, remote:true do |f|
-    =f.text_field :title, {placeholder: "Paper's Title"}
-    =f.hidden_field :user_id, value:current_user.id
-    =f.submit 'save'
-
-  .close-modal
-    %i{class:'fa fa-2x fa-times'}
 - @papers.each do |paper|
   %li{class:"paper-item"}
     = link_to paper.title, paper_section_path(paper_id:paper.id,id:'new')
@@ -27,12 +16,3 @@
       .close-modal
         %i{class:'fa fa-2x fa-times'}
 
-:javascript
-  $('.paper-edit').on('click',function(){
-    $('#paper-title-edit-in-dashboard-show').fadeIn();
-  });
-
-  $('.close-modal').on('click', function(){
-    $('#paper-title-edit-in-dashboard-show').fadeOut();
-
-  });

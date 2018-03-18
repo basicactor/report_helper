@@ -2,11 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+/* =============================================== Preview ======================================== */
+
 
 .preview-page {
 	width:50%;
 	margin:0 auto;
 	position:relative;
+  background: white;
+  padding: 20px;
 
 	.preview-page-icon{
 	position:absolute;
@@ -20,8 +24,10 @@
 	h1{
 	text-align:center;
 	margin-bottom:30px;
-	padding:10px;
+	padding:60px 0 20px 0;
 	}
+
+
 }
 
 
@@ -41,6 +47,29 @@
 h2.dashboard-title {
   text-align: center;
   margin-bottom:20px;
+}
+
+
+/*newボタンは見れるようにする*/
+#paper-create-modal-trigger .fa{
+	width:100%;
+	text-align:center;
+	display:block;
+	
+}
+
+.fa-eye:hover {
+	color:blue;
+}
+
+#new-paper-modal-create-show{
+  z-index: 100;
+  width: 80%;
+  height: 50px;
+  box-shadow: 1px 0px 16px 4px darkgrey;
+  border-radius: 5px;
+  margin: 30px auto;
+
 }
 
 
@@ -77,17 +106,15 @@ h2.dashboard-title {
     }
 }
 
-/*newボタンは見れるようにする*/
-#paper-create-button .fa{
-	width:100%;
-	text-align:center;
-	display:block;
-	
+#paper-title-edit-in-dashboard-show{
+	box-shadow: 0 0 9px 3px darkgrey;
+  height: 70px;
+
+  p{
+  	padding-top:10px;
+  }
 }
 
-.fa-eye:hover {
-	color:blue;
-}
 
 
 

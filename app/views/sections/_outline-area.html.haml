@@ -1,20 +1,17 @@
 #outline-area.main-component
-  
-  #edit-paper-title-modal-trigger
-    %h3 
-      = @paper.title
-    
-    
+  .edit-paper-title-in-outline
+    #edit-paper-title-modal-trigger
+      %h3 
+        = @paper.title
+      
+    #edit-paper-title-modal-show.modal
+      %p paper titleを修正
+      = form_for @paper, url: {controller:"papers", action: "update", id:@paper.id}, html:{method:"patch"}, remote: true do |f|
+        =f.text_field :title, value: @paper.title
+        =f.hidden_field :user_id, value:current_user.id
+        =f.submit 'save'
 
-  #edit-paper-title-modal-show.modal
-    %p paper titleを修正
-    = form_for @paper, url: {controller:"papers", action: "update", id:@paper.id}, html:{method:"patch"}, remote: true do |f|
-      =f.text_field :title, value: @paper.title
-      =f.hidden_field :user_id, value:current_user.id
-      =f.submit 'save'
 
-    .close-modal
-      %i{class:'fa fa-2x fa-times'}
       
 
 
@@ -32,5 +29,7 @@
   .preview-button
     = link_to paper_path(@paperID), target:"_blank" do
       %i{class:"fa fa-eye preview"}
+
+
 
 
