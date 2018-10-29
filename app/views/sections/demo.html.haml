@@ -1,0 +1,25 @@
+.main-page
+  .container
+
+    #main-area.main-component
+      .new-section-button
+        = link_to paper_sections_path( "section"=>{"title"=>"", "text"=>"", "paper_id"=>@paperID}), method:'post' do
+          %i{class:"fa fa-plus-square"}
+      #main-text-area{'data-url':paper_section_path}
+        = form_for [@paper, @section], url: {action: "update"}, remote: true do |f|
+          = f.text_field :title, {placeholder:'Section Title'}
+          = f.text_area :text
+          / = f.select :part, [["introduction", "introduction"], ["body", "body"], ["conclusion", "conclusion"]], :selected => "body"
+          = f.hidden_field :paper_id, value:@paperID
+          .create-temp
+      .save-status
+
+      #counter-box
+        %button{id:"count"} count
+        .counter-words
+          Words: <span id="wordCount">0</span><br/>
+        .counter-charactors
+          Charactors: <span id="totalChars">0</span><br/>
+        / Characters (excluding trails): <span id="charCount">0</span><br/>
+        / Characters (excluding all spaces): <span id="charCountNoSpace">0</span>
+
